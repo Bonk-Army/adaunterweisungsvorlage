@@ -1,0 +1,282 @@
+\documentclass[12pt, a4paper, oneside, titlepage]{article}
+\usepackage[german,ngerman]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{lipsum}
+\usepackage{pdflscape}
+
+\usepackage{geometry}
+\geometry{
+  left=3.5cm,
+  right=3.5cm,
+  top=2.5cm,
+  bottom=2cm,
+  headsep=1cm,
+  includeheadfoot
+}
+
+\usepackage[all,defaultlines=4]{nowidow}
+\clubpenalty=10000 
+\widowpenalty=10000
+\displaywidowpenalty=10000 
+
+\setlength{\parindent}{1em} 
+
+\usepackage{setspace}
+\onehalfspacing
+\newcommand{\MSonehalfspacing}{%
+  \setstretch{1.44}%  default
+  \ifcase \@ptsize \relax % 10pt
+    \setstretch {1.448}%
+  \or % 11pt
+    \setstretch {1.399}%
+  \or % 12pt
+    \setstretch {1.433}%
+  \fi
+}
+
+\setlength{\parskip}{10pt}
+
+\usepackage{lmodern}
+\setlength{\parindent}{0pt}
+\usepackage{color}
+\usepackage{xcolor}
+\definecolor{darkRed}{HTML}{5c0910}
+\definecolor{myRed}{HTML}{81111A}
+\definecolor{greyRed}{HTML}{744347}
+\definecolor{darkGrey}{HTML}{424242}
+\definecolor{lightGrey}{HTML}{6E6E6E}
+\definecolor{SpringGreen}{HTML}{c8e27a}
+\definecolor{RedOrange}{HTML}{e27a68}
+\definecolor{mygreen}{RGB}{28,172,0} % color values Red, Green, Blue
+\definecolor{mylilas}{RGB}{170,55,241}
+
+\usepackage{colortbl}
+\usepackage{bigstrut}
+\usepackage{longtable}
+
+\usepackage{sectsty}
+\partfont{\color{darkRed}}
+\sectionfont{\color{myRed}} %Farbe Hauptüberschriften
+\subsectionfont{\color{greyRed}} %Farbe Unterüberschriften
+\subsubsectionfont{\color{lightGrey}} %Farbe Unterunterüberschriften
+\paragraphfont{\color{darkGrey}} %Farbe Paragraph
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\renewcommand{\headrulewidth}{0.4pt}	% Liniendicke Kopf
+\renewcommand{\footrulewidth}{0pt}	% Liniendicke Fuß
+
+\usepackage{graphicx}
+
+\usepackage{parcolumns}
+
+\usepackage{amsmath}
+\allowdisplaybreaks[3]
+%\DeclareMathOperator*{\argmax}{arg\,max}
+
+\usepackage{url}
+\def\UrlBreaks{\do\/\do-}
+
+\usepackage[hidelinks]{hyperref}
+
+\usepackage[printonlyused]{acronym}
+
+\usepackage[center]{caption}
+
+\usepackage{float}                        
+\newfloat{anhang}{h}{fig}              
+\floatname{anhang}{Anhang}
+
+\usepackage[framemethod=TikZ]{mdframed}
+\usepackage{amssymb}    % Symbole
+
+\usepackage{ulem}
+
+\usepackage{pdfpages}
+
+\usepackage[T1]{fontenc}
+
+\usepackage{tocloft}
+\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
+\renewcommand{\cfttoctitlefont}{\normalfont \Large \bfseries \color{myRed}}
+\renewcommand{\cftloftitlefont}{\normalfont \Large \bfseries \color{myRed}}
+\renewcommand{\cftlottitlefont}{\normalfont \Large \bfseries \color{myRed}}
+\renewcommand{\cftpartfont}{\Large \color{darkGrey}}
+
+\usepackage{listings}
+
+\usepackage{xparse}
+
+\NewDocumentCommand{\codeword}{v}{%
+\texttt{\textcolor{blue}{#1}}%
+}
+
+\setlength{\emergencystretch}{1em}
+
+\newcommand{\done}{\item[\checkmark]}
+\newcommand{\crossed}{\item[$\times$]}
+
+% Hier die persönlichen Daten eingeben:
+
+\newcommand{\titel}{Unterweisungsentwurf - zur Ausbilder-Eignungsprüfung}
+\newcommand{\studiengang}{Informatik}
+\newcommand{\autor}{Max Mustermann}
+\newcommand{\matrikelnr}{XXXXX}
+\newcommand{\kurs}{TINF19BX}
+\newcommand{\abgabe}{15.11.2021}
+
+\begin{document}
+\lstset{
+	numbers=left,
+	numberstyle=\footnotesize\color{black},
+	tabsize=2,
+	breaklines=true
+}
+
+\lstset{escapeinside={(*@}{@*)}}
+
+\setnoclub
+\setcounter{secnumdepth}{3}					% Nummerierungstiefe fürs Inhaltsverzeichnis
+\fontfamily{lmss}\selectfont				%schriftart für normalen Inhalt
+
+%-------------------------------Anfangsgedöhns-------------------------------------
+\pagenumbering{Roman}						% große, römische Seitenzahlen für Titelei
+
+
+%---------------Titelseite-----------
+
+
+\fancyhead{}								%Header
+\fancyhead[L]{\textbf{Studienbereich Informatik}\newline 
+Studienrichtung Angewandte Informatik}
+\rhead{\includegraphics[height=1.5cm]{images/dhbw.jpg}}
+\setlength\headheight{48pt}					%headerhöhe
+
+\fancyfoot{}
+
+\begin{center}
+
+
+\vspace{1.5cm}
+\topskip0pt
+\vspace*{\fill}
+\section*{
+Thema des Unterweisungsentwurfs}
+
+\vspace{1.5cm}
+
+\textbf{Unterweisungsentwurf zur Ausbilder-Eignungsprüfung}
+\ \\
+\ \\
+\ \\
+
+\textbf{Ausbildungsberuf}\\
+\textit{Fachinformatiker (Fachrichtung Anwendungsentwicklung)}
+
+\ \\
+
+von \\ 
+\autor 
+\ \\
+
+\ \\
+
+\begin{parcolumns}[]{2}
+  \colchunk{Abgabedatum}
+  \colchunk{\abgabe}
+  \colplacechunks
+  
+ \colchunk{Matrikelnummer}
+  \colchunk{\matrikelnr}
+  \colplacechunks
+  
+  \colchunk{Kurs}
+  \colchunk{\kurs}
+  \colplacechunks
+  
+
+  
+\end{parcolumns}
+
+
+
+\end{center}
+\vspace*{\fill}
+
+\pagebreak
+
+
+\pagestyle{plain}
+\setlength\headheight{0pt}	
+
+%-------------------------Eidesstattliche Erklärung ---------------
+
+\section*{Eidesstattliche Erklärung}
+\begin{itshape}
+Gemäß § 5 (3) der \glqq Studien- und Prüfungsordnung DHBW Technik\grqq{} vom 29. September 2017. 
+
+\ \\ 
+\noindent
+Ich versichere hiermit, dass ich meinen \textbf{Unterweisungsentwurf zur Ausbilder-Eignungsprüfung} mit dem Thema \glqq Thema des Unterweisungsentwurfs \grqq{} selbstständig verfasst und keine anderen als die angegebenen Quellen und Hilfsmittel benutzt habe.
+Ich versichere zudem, dass die eingereichte elektronische Fassung mit der gedruckten Fassung übereinstimmt.
+\ \\
+\ \\
+\ \\
+
+\hrule
+
+Ort \hspace{1.5cm} Datum \hspace{2.5cm}   Unterschrift (\autor)
+
+\end{itshape}
+
+\pagebreak
+\tableofcontents							% Erzeugen des Inhalsverzeichnisses
+
+\pagebreak
+%\listoffigures 							% Erzeugen des Abbildungsverzeichnisses 
+%\listoftables 								% Erzeugen des Tabellenverzeichnisses
+
+
+\pagebreak
+
+%---------------------------------------Hauptinhalt---------------------------------------
+
+\pagenumbering{arabic}						% arabische Seitenzahlen für den Hauptteil
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\nouppercase\leftmark}
+\fancyhead[R]{\thepage}
+\renewcommand{\headrulewidth}{0.5pt}
+\setlength\headheight{15pt}	
+\pagebreak
+
+
+%-------------------------------Thema der Unterweisung------------------------------------------------------------
+\section{Thema der Unterweisung}  \label{kapThemaUnterweisung}
+\input{chapters/ThemaUnterweisung.tex}
+\pagebreak
+%------------------------------Rahmenbedingunen-----------------------------------------------------
+\section{Rahmenbedingungen} \label{kapRahmenbedingungen}
+\input{chapters/Rahmenbedingungen.tex}
+
+\pagebreak
+
+%-----------------------Lernziele----------------------------------------------
+\section{Lernziele} \label{kapLernziele}
+\input{chapters/Lernziele.tex}
+%----------------------Ablauf der Unterweisung-------------------------------------------------
+\section{Ablauf der Unterweisung} \label{kapAblaufUnterweisung}
+\input{chapters/AblaufUnterweisung.tex}
+
+
+%----------------------Ausblick nach der Unterweisung-------------------------------------------------
+\section{Ausblick} \label{kapAusblick}
+\input{chapters/Ausblick.tex}
+\pagebreak
+%-----------------------------------Anhang----------------------------------------------
+\section{Anhang}
+\begin{appendix}
+\pagenumbering{Roman}						% römische Seitenzahlen für Anhang
+\end{appendix}
+
+\end{document}
